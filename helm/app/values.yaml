@@ -1,0 +1,20 @@
+app:
+  name: falafel-shop-inc-api
+  image:
+    repository: ghcr.io/lebrick07/falafel-shop-inc-api
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 1
+  port: 8000
+  service:
+    type: ClusterIP
+    port: 80
+
+ingress:
+  enabled: true
+  className: traefik
+  host: falafel-shop-inc.local
+
+# Environment-specific values
+namespace: falafel-shop-inc-dev
+environment: dev
